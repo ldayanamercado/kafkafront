@@ -17,9 +17,12 @@ export class AppComponent {
 
 
 
-  constructor(private vehiculoServices: VehiculoService,) { }
+  constructor(private vehiculoServices: VehiculoService) { }
+
+
   ngOnInit() {
     this.get();
+    this.vehiculo.totalPagar="0";
   }
 
 
@@ -40,9 +43,25 @@ export class AppComponent {
   }
 
 
-
-
   clear(){
     this.vehiculo= new Vehiculo;
   } 
+
+  precios(){
+
+
+      if (this.vehiculo.tipoVehiculo === "carro") 
+      {
+        this.vehiculo.totalPagar="2000";
+
+      } 
+      else
+      {
+        this.vehiculo.totalPagar="1000";
+      }
+
+    
+  }
+
+
 }
