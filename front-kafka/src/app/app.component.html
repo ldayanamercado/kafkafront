@@ -8,46 +8,55 @@
       <div class="card-body">
         <section class="formulario m-2">
           <form>
+            <div class="form-group ">
+              <label class="form-label">id: </label>
+              <input type="text" class="form-control"  name="id" [(ngModel)]="vehiculo.id" placeholder="">
+             </div>
             <div class="form-group parent ">
               <div class="form-group">
                 <label class="form-label">fecha: </label>
-                <input type="date" class="form-control"  name="fecha" placeholder="">
+                <input type="text" class="form-control" name="fecha" [(ngModel)]="vehiculo.fecha" placeholder="">
               </div>
               <div class="form-group">
                 <label class="form-label">Hora: </label>
-                <input type="time" class="form-control"  name="hora" placeholder="">
+                <input type="text" class="form-control"  name="hora" [(ngModel)]="vehiculo.hora" placeholder="">
               </div>
             </div>
             <div class="form-group">
               <label class="form-label">Nombre : </label>
-              <input type="text" class="form-control"  name="name" placeholder="">
+              <input type="text" class="form-control"  name="nombre" [(ngModel)]="vehiculo.nombre" placeholder="">
             </div>
             <div class="form-group">
               <label class="form-label">Email: </label>
-              <input type="email" class="form-control" name="email"  placeholder="">
+              <input type="text" class="form-control" name="email" [(ngModel)]="vehiculo.email" placeholder="">
             </div>
             <div class="form-group">
               <label class="form-label">Celular: </label>
-              <input type="number" class="form-control" name="celular"  placeholder="">
+              <input type="text" class="form-control" name="celular" [(ngModel)]="vehiculo.celular" placeholder="">
             </div>
             
             <div class="form-group parent ">
               <div class="form-group ">
                 <label class="form-label">Vehiculo : </label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Selecciona un vehiculo</option>
-                  <option value="1">Carro</option>
-                  <option value="2">Moto</option>
+                <select class="form-select" aria-label="Default select example" name="tipoVehiculo" [(ngModel)]="vehiculo.tipoVehiculo">
+                  
+                  <option value="carro">Carro</option>
+                  <option value="moto">Moto</option>
                 </select>
               </div>
              <div class="form-group ">
               <label class="form-label">Matricula: </label>
-              <input type="text" class="form-control"  name="name" placeholder="">
+              <input type="text" class="form-control"  name="matricula" [(ngModel)]="vehiculo.matricula" placeholder="">
              </div>
+             
             </div>
+            <div class="form-group ">
+              <label class="form-label">Total a pagar : </label>
+              <input type="text" class="form-control"  name="pagar" [(ngModel)]="vehiculo.totalPagar" placeholder="">
+             </div>
             
             <div class="form-group">
-              <button type="submit" class="btn btn-primary" >Registrar</button>
+              <button type="submit" class="btn btn-primary" (click)="postVehiculo()" >Registrar</button>
 
             </div>
 
@@ -61,7 +70,7 @@
   <br>
  
 
-<!--
+
 
 
  <div class="row m-2">
@@ -85,7 +94,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let v of vehiculo; index as i">
+            <tr *ngFor="let v of vehiculos; index as i">
               <th>{{ i+1 }}</th>
               <td>{{ v.fecha }}</td>
               <td>{{ v.hora }}</td>
@@ -104,7 +113,7 @@
 
     </section>
   </div>
--->
+
 
 </div>
 

@@ -8,11 +8,11 @@ import { Vehiculo } from '../models/vehiculo';
 })
 export class VehiculoService {
 
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = 'http://127.0.0.1:8000';
   constructor(private http: HttpClient){ }
 
   post(vehiculo : Vehiculo): Observable<Vehiculo>{
-    return this.http.post<Vehiculo>(this.apiUrl+ '/vehiculos', vehiculo)
+    return this.http.post<Vehiculo>(this.apiUrl+ '/vehiculo', vehiculo)
     .pipe(
       tap(_ => console.log('Vehiculo registrado')),
       catchError(error =>{
@@ -23,7 +23,7 @@ export class VehiculoService {
   }
 
   get(): Observable <Vehiculo[]>{
-    return this.http.get<Vehiculo[]>(this.apiUrl+'/vehiculos').pipe(
+    return this.http.get<Vehiculo[]>(this.apiUrl+'/vehiculo').pipe(
       tap(_ => console.log('Vehiculo Encontrado')),
       catchError(error =>{
         console.log("error al buscar")
